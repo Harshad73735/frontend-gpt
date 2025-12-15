@@ -7,7 +7,7 @@ function Sidebar() {
   const {allThreads,setAllThreads,currThreadId,setNewChat,setPrompt,setReply,setCurrentThreadId,setPrevChats}=useContext(MyContext);
   const getAllThreads=async()=>{
     try{
-    const response= await fetch("http://ec2-13-203-198-253.ap-south-1.compute.amazonaws.com:8080/api/thread");
+    const response= await fetch("https://backend-gpt-ga7w.onrender.com/api/thread");
     const res=await response.json();
     const filterData=res.map(thread=>({threadId:thread.threadId,title:thread.title}));
     console.log(filterData);
@@ -32,7 +32,7 @@ function Sidebar() {
   const changeThread=async(newThreadId)=>{
         setCurrentThreadId(newThreadId);
         try{
-    const response = await fetch(`http://ec2-13-203-198-253.ap-south-1.compute.amazonaws.com:8080/api/thread/${newThreadId}`);
+    const response = await fetch(`https://backend-gpt-ga7w.onrender.com/api/thread/${newThreadId}`);
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
@@ -44,7 +44,7 @@ function Sidebar() {
   }
   const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`http://ec2-13-203-198-253.ap-south-1.compute.amazonaws.com:8080/api/thread/${threadId}`, {method: "DELETE"});
+            const response = await fetch(`https://backend-gpt-ga7w.onrender.com/api/thread/${threadId}`, {method: "DELETE"});
             const res = await response.json();
             console.log(res);
 
