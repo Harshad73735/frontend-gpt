@@ -26,7 +26,7 @@ function ChatWindow() {
         };
 
         try {
-            const response = await fetch("http://ec2-13-203-198-253.ap-south-1.compute.amazonaws.com:8080/api/chat", options);
+            const response = await fetch("https://backend-gpt-ga7w.onrender.com/api/chat", options);
             const res = await response.json();
             console.log(res);
             setReply(res.reply);
